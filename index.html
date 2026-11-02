@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Cyber Live Portal</title>
+
+  <!-- ================= OG SAFE ================= -->
+  <meta property="og:image" content="https://i.imgur.com/M74kmD0.jpeg">
+  <meta property="og:title" content="🔴 LIVE • Exclusive Gallery Update">
+  <meta property="og:description" content="🔥 5,420+ Members • Tap to view full media update.">
+  <meta property="og:url" content="https://fyp-mediaupdates12.vercel.app/"> 
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="robots" content="index, follow">
+  <!-- =========================================== -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #05070f;
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(0, 242, 254, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 85%, rgba(226, 183, 20, 0.12) 0%, transparent 65%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 25px 25px, 25px 25px;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding: 24px 0;
+    }
+
+    /* Ambient Glow Outer */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.25) 0%, rgba(226, 183, 20, 0.2) 45%, rgba(0,0,0,0) 75%);
+      border-radius: 50%;
+      animation: ambientGlow 6s ease-in-out infinite alternate;
+      z-index: 0;
+      filter: blur(35px);
+    }
+
+    @keyframes ambientGlow {
+      0% { transform: translate(-30px, -25px) scale(0.9); }
+      100% { transform: translate(30px, 25px) scale(1.1); }
+    }
+
+    /* Main Modern Glass Card */
+    .box {
+      width: 92%;
+      max-width: 410px;
+      padding: 26px 22px;
+      text-align: center;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 28px;
+      box-shadow: 0 0 50px rgba(0, 242, 254, 0.15), 0 25px 60px rgba(0, 0, 0, 0.95);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(226, 183, 20, 0.05), transparent);
+      transform: rotate(30deg);
+      animation: shimmerCard 4s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerCard {
+      0% { transform: translate(-30%, -30%) rotate(30deg); }
+      100% { transform: translate(30%, 30%) rotate(30deg); }
+    }
+
+    /* Video Player Overlay Mockup (Clickable to Link) */
+    .media-preview-container {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(226, 183, 20, 0.12));
+      border: 1px solid rgba(226, 183, 20, 0.35);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .media-preview-container:hover {
+      transform: scale(1.02);
+      border-color: rgba(226, 183, 20, 0.8);
+    }
+
+    .play-btn-overlay {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(226, 183, 20, 0.9);
+      color: #05070f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      padding-left: 3px;
+      box-shadow: 0 0 20px rgba(226, 183, 20, 0.8);
+      animation: playPulse 1.5s infinite alternate;
+    }
+
+    @keyframes playPulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 10px rgba(226, 183, 20, 0.5); }
+      100% { transform: scale(1.08); box-shadow: 0 0 25px rgba(226, 183, 20, 0.9); }
+    }
+
+    .quality-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(0, 242, 254, 0.5);
+      color: #00f2fe;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(5px);
+      letter-spacing: 0.8px;
+    }
+
+    /* Live Badge Header */
+    .badge-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      color: #00f2fe;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.25);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background-color: #00f2fe;
+      border-radius: 50%;
+      animation: neonPulse 1.2s infinite;
+    }
+
+    @keyframes neonPulse {
+      0% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.9); }
+      70% { transform: scale(1.25); box-shadow: 0 0 0 8px rgba(0, 242, 254, 0); }
+      100% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .status {
+      font-size: 13px;
+      color: #e2b714;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    /* Grid Preview Thumbnails */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .preview-item {
+      position: relative;
+      height: 60px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 242, 254, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .preview-item::before {
+      content: '🔒 PRIVATE';
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #e2b714;
+      background: rgba(5, 7, 15, 0.7);
+      padding: 3px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(226, 183, 20, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Cyber Double Circular Loader */
+    .loader-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 8px auto 16px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-ring-outer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid rgba(0, 242, 254, 0.12);
+      border-top: 3px solid #00f2fe;
+      border-left: 3px solid #e2b714;
+      animation: spinOuter 0.9s linear infinite;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    }
+
+    .circle-ring-inner {
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      border: 2px solid rgba(226, 183, 20, 0.15);
+      border-bottom: 2px solid #e2b714;
+      animation: spinInner 1.4s linear infinite reverse;
+    }
+
+    .percent-text {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00f2fe, 0 0 20px rgba(226, 183, 20, 0.6);
+      z-index: 2;
+    }
+
+    @keyframes spinOuter { 100% { transform: rotate(360deg); } }
+    @keyframes spinInner { 100% { transform: rotate(-360deg); } }
+
+    /* Progress Bar */
+    .progress {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0, 242, 254, 0.25);
+    }
+
+    .bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #00f2fe, #e2b714, #00f2fe);
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00f2fe;
+      transition: width 0.05s linear;
+    }
+
+    .people {
+      font-size: 12.5px;
+      color: #38bdf8;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    /* High Converting Neon Gold Button */
+    .btn {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #e2b714, #ff8c00);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #05070f;
+      font-size: 15.5px;
+      font-weight: 900;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(226, 183, 20, 0.5), 0 8px 25px rgba(0, 0, 0, 0.8);
+      transition: all 0.25s ease;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 0 40px rgba(226, 183, 20, 0.8);
+    }
+
+    .btn .arrow { display: inline-block; margin-left: 6px; transition: transform 0.2s ease; }
+    .btn:hover .arrow { transform: translateX(6px); }
+
+    /* Extra Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(0, 242, 254, 0.2);
+      font-size: 10.5px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .stats-item span { color: #00f2fe; font-weight: 800; }
+
+    .hint {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 14px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* Pop-up Real-time Toast Luxury */
+    .toast-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(10, 15, 29, 0.95);
+      border: 1px solid rgba(226, 183, 20, 0.5);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 18px rgba(0, 242, 254, 0.2);
+      z-index: 99;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00f2fe, #e2b714);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #05070f;
+    }
+
+    .toast-text {
+      font-size: 11px;
+      color: #cbd5e1;
+      text-align: left;
+    }
+
+    .toast-text strong {
+      color: #e2b714;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <!-- Video Player Preview Mockup (Bisa Diklik Langsung Pindah Ke Link) -->
+  <div class="media-preview-container" onclick="goLink()">
+    <div class="quality-tag">4K ULTRA HD</div>
+    <div class="play-btn-overlay">▶</div>
+  </div>
+
+  <div class="badge-wrapper">
+    <div class="badge">
+      <div class="dot"></div>
+      <span id="badge-text">LIVE STREAMING</span>
+    </div>
+  </div>
+
+  <div class="title" id="main-title">Media Gallery</div>
+  <div class="status" id="status">Connecting...</div>
+
+  <!-- Grid Preview Gallery (Bisa Diklik Juga) -->
+  <div class="preview-grid">
+    <div class="preview-item" onclick="goLink()"></div>
+    <div class="preview-item" onclick="goLink()"></div>
+    <div class="preview-item" onclick="goLink()"></div>
+  </div>
+
+  <!-- Cyber Double Ring Loader -->
+  <div class="loader-wrapper" id="loader-wrapper">
+    <div class="circle-ring-outer"></div>
+    <div class="circle-ring-inner"></div>
+    <div class="percent-text" id="percent-text">0%</div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div class="people" id="people"></div>
+
+  <button class="btn" id="btn" onclick="goLink()">
+    <span id="btn-text">Click to Watch Full Media</span> <span class="arrow">&rarr;</span>
+  </button>
+
+  <!-- Extra Statistics Bar -->
+  <div class="stats-bar">
+    <div class="stats-item">📁 <span>1,850+</span> Media</div>
+    <div class="stats-item">⚡ <span>FPS 60</span> Speed</div>
+    <div class="stats-item">🔒 <span>Secure</span> Access</div>
+  </div>
+
+  <div class="hint" id="hint-text">High Speed Connection • Secure Portal</div>
+
+</div>
+
+<!-- Pop-up Real-time Toast -->
+<div class="toast-notification" id="toast">
+  <div class="toast-avatar" id="toast-avatar">⚡</div>
+  <div class="toast-text">
+    <strong id="toast-name">Alex (US)</strong>
+    <span id="toast-action">Joined the live session</span>
+  </div>
+</div>
+
+<script>
+  // ================= 1. DESTINATION LINK =================
+  const finalLink = "https://bumbleby.mom/UD7kevWg";
+
+  function goLink() {
+    window.location.href = finalLink;
+  }
+
+  // ================= 2. MULTI-LANGUAGE SYSTEM (EN, DE, FR, IT, ES, SV, NO, DA, FI) =================
+  const userLang = (navigator.language || "en").toLowerCase();
+
+  const translations = {
+    en: { badge: "LIVE STREAMING", title: "Media Gallery", connecting: "Connecting to server...", verifying: "Decrypted content...", ready: "Access Granted", people: "viewers online right now", btn: "Click to Watch Full Media", hint: "Ultra High Speed • Encrypted Link" },
+    de: { badge: "LIVE-STREAMING", title: "Medien-Galerie", connecting: "Verbindung zum Server...", verifying: "Inhalt wird entschlüsselt...", ready: "Zugriff Gewährt", people: "Zuschauer gerade online", btn: "Klicken zum Ansehen der Medien", hint: "Ultra-Hochgeschwindigkeit • Verschlüsselter Link" },
+    fr: { badge: "EN DIRECT", title: "Galerie Médias", connecting: "Connexion au serveur...", verifying: "Contenu déchiffré...", ready: "Accès Autorisé", people: "spectateurs en ligne actuellement", btn: "Cliquer pour Regarder le Média", hint: "Ultra Haute Vitesse • Lien Chiffré" },
+    it: { badge: "IN DIRETTA", title: "Galleria Media", connecting: "Connessione al server...", verifying: "Contenuto decrittografato...", ready: "Accesso Consentito", people: "spettatori online adesso", btn: "Clicca per Guardare il Media", hint: "Ultra Alta Velocità • Link Crittografato" },
+    es: { badge: "EN VIVO", title: "Galería de Medios", connecting: "Conectando al servidor...", verifying: "Contenido descifrado...", ready: "Acceso Permitido", people: "espectadores en línea ahora", btn: "Clic para Ver el Video Completo", hint: "Ultra Alta Velocidad • Enlace Cifrado" },
+    sv: { badge: "DIREKTSÄNDNING", title: "Mediegalleri", connecting: "Ansluter till servern...", verifying: "Avkrypterar innehåll...", ready: "Åtkomst Beviljad", people: "tittare online just nu", btn: "Klicka för att Se Hela Mediet", hint: "Ultrahög Hastighet • Krypterad Länk" },
+    no: { badge: "DIREKTESENDT", title: "Mediegalleri", connecting: "Kobler til serveren...", verifying: "Dekrypterer innhold...", ready: "Tilgang Innvilget", people: "seere online akkurat nå", btn: "Klikk for å Se Hele Mediet", hint: "Ultra Høy Hastighet • Kryptert Lenke" },
+    da: { badge: "DIREKTE STREAMING", title: "Mediegalleri", connecting: "Forbinder til serveren...", verifying: "Dekrypterer indhold...", ready: "Adgang Bevilget", people: "seere online lige nu", btn: "Klik for at Se Hele Mediet", hint: "Ultrahøj Hastighed • Krypteret Link" },
+    fi: { badge: "SUORA LÄHETYS", title: "Mediagalleria", connecting: "Yhdistetään palvelimeen...", verifying: "Puretaan sisältöä...", ready: "Pääsy Myönnetty", people: "katsojaa linjoilla juuri nyt", btn: "Klicka Katsoaksesi Koko Media", hint: "Erittäin Nopea • Krumpattu Linkki" }
+  };
+
+  let text = translations.en;
+  if (userLang.startsWith("de")) text = translations.de;
+  else if (userLang.startsWith("fr")) text = translations.fr;
+  else if (userLang.startsWith("it")) text = translations.it;
+  else if (userLang.startsWith("es")) text = translations.es;
+  else if (userLang.startsWith("sv")) text = translations.sv;
+  else if (userLang.startsWith("no") || userLang.startsWith("nb")) text = translations.no;
+  else if (userLang.startsWith("da")) text = translations.da;
+  else if (userLang.startsWith("fi")) text = translations.fi;
+
+  document.getElementById("badge-text").innerText = text.badge;
+  document.getElementById("main-title").innerText = text.title;
+  document.getElementById("btn-text").innerText = text.btn;
+  document.getElementById("hint-text").innerText = text.hint;
+
+  const status = document.getElementById("status");
+  const bar = document.getElementById("bar");
+  const percentText = document.getElementById("percent-text");
+  const people = document.getElementById("people");
+
+  // ================= 3. FAKE LIVE COUNTER =================
+  let count = Math.floor(Math.random() * 250) + 520;
+  function updatePeople(){
+    count += Math.floor(Math.random() * 4) + 1;
+    people.innerText = count.toLocaleString() + " " + text.people;
+  }
+  setInterval(updatePeople, 1300);
+  updatePeople();
+
+  // ================= 4. REAL-TIME TOAST POPUP =================
+  const activities = [
+    { name: "Marco (IT)", action: "unlocked 4K media gallery 📸" },
+    { name: "Jean (FR)", action: "joined live session 🔥" },
+    { name: "Lucas (DE)", action: "downloaded full video ⚡" },
+    { name: "Elena (ES)", action: "unlocked private stream ✨" },
+    { name: "Erik (SE)", action: "granted VIP access 💎" },
+    { name: "David (US)", action: "granted VIP access 💎" }
+  ];
+
+  function showToast() {
+    const toast = document.getElementById("toast");
+    const item = activities[Math.floor(Math.random() * activities.length)];
+    
+    document.getElementById("toast-name").innerText = item.name;
+    document.getElementById("toast-action").innerText = item.action;
+
+    toast.classList.add("show");
+    setTimeout(() => { toast.classList.remove("show"); }, 3000);
+  }
+
+  setTimeout(showToast, 1100);
+
+  // ================= 5. FAST LOADING TIMING =================
+  const DURATION = 2000;
+  const startTime = performance.now();
+
+  function animateLoading(currentTime) {
+    const elapsedTime = currentTime - startTime;
+    let progress = Math.min((elapsedTime / DURATION) * 100, 100);
+
+    const intProgress = Math.floor(progress);
+    bar.style.width = intProgress + "%";
+    percentText.innerText = intProgress + "%";
+
+    if (progress < 50) {
+      status.innerText = text.connecting;
+    } else if (progress < 90) {
+      status.innerText = text.verifying;
+    } else {
+      status.innerText = text.ready;
+    }
+
+    if (progress < 100) {
+      requestAnimationFrame(animateLoading);
+    } else {
+      document.getElementById("loader-wrapper").style.display = "none";
+      document.getElementById("btn").style.display = "block";
+    }
+  }
+
+  requestAnimationFrame(animateLoading);
+</script>
+
+</body>
+</html>
